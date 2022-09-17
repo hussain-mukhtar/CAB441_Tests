@@ -1,0 +1,5 @@
+print_header "Example test."
+echo "Parameters:"
+echo "Groupnum=$GROUPNUM"
+echo "Returning 77"
+return_value 77
