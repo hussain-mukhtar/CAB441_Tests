@@ -2,7 +2,7 @@ source library.sh
 
 print_header "Testing ssh brute force snort alert"
 
-IPADDRESS=10.0.0.2
+IPADDRESS=10.0.0.3
 ROUTERIPADDRESS=172.16.0.254
 BASTIONIPADDRESS=10.0.0.10
 PORTNUM=46753
