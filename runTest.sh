@@ -7,7 +7,6 @@
 ./markerlogin.sh
 ./markerloginsudo.sh
 ./aptupdate.sh
-./openvpn.sh
 ./openvpnmarkerssh.sh
 ./web.sh
 ./snort.sh

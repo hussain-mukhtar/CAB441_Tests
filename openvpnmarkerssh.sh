@@ -11,8 +11,8 @@ OVPNDIR=$( mktemp -d )
 RET=0
 
 
-print_header2 "Configuration under /home/marker/vpn.conf on bastion?"
-scp -P ${PORTNUM} ${BASTIONIPADDRESS}:/home/marker/vpn.conf ${OVPNDIR}/vpn.conf
+print_header2 "Configuration under /home/kali/vpn.conf on bastion?"
+scp -P ${PORTNUM} ${BASTIONIPADDRESS}:/home/kali/vpn.conf ${OVPNDIR}/vpn.conf
 RET1=$?
 [[ ${RET1} -eq 0 ]] || RET=1
 print_passfail3 ${RET1}

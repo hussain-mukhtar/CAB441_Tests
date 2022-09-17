@@ -2,6 +2,8 @@
 #UserKnownHostsFile=/dev/null
 #StrictHostKeyChecking=no
 
+source library.sh
+
 print_header "Test apt update for all VMs"
 
 BASTIONIPADDRESS=10.0.0.10

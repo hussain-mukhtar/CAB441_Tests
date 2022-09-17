@@ -6,7 +6,7 @@ print_header "Testing OpenVPN server Connection"
 
 BASTIONIPADDRESS=10.0.0.10
 PORTNUM=46753
-#OVPNDIR=$( mktemp -d )
+OVPNDIR=$( mktemp -d )
 RET=0
 
 
