@@ -2,6 +2,8 @@
 #UserKnownHostsFile=/dev/null
 #StrictHostKeyChecking=no
 
+source library.sh
+
 print_header "Testing ssh login as kalu, using ProxyJump via bastion, with sudo"
 
 BASTIONIPADDRESS=10.0.0.10

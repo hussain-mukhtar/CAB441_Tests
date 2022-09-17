@@ -1,4 +1,6 @@
-print_header "OpenVPN server"
+source library.sh
+
+print_header "Tessting shh via OpenVPN server"
 
 BASTIONIPADDRESS=10.0.0.10
 ROUTERIPADDRESS=172.16.0.254
@@ -20,7 +22,7 @@ print_header2 "VPN connects?"
 print_header3 "running openvpn ${OVPNDIR}/vpn.conf.  Waiting for connection... "
 
 OVPNPIDFILE=${OVPNDIR}/pid
-TUNDEV=tun${GROUPNUM}
+TUNDEV=tun0
 OVPNLOGFILE=${OVPNDIR}/openvpn.log
 cat ${OVPNDIR}/vpn.conf
 sudo -n /usr/sbin/openvpn \
@@ -47,17 +49,17 @@ print_passfail3 ${RET1}
 
 print_header2 "Can ssh into 3 VMs over the VPN?"
 
-host_run_command ${ROUTERIPADDRESS} "true"
+ssh ${ROUTERIPADDRESS} "true"
 RET1=$?
 [[ ${RET1} -eq 0 ]] || RET=1
 print_passfail3 ${RET1}
 
-host_run_command ${PROXYIPADDRESS} "true"
+ssh ${PROXYIPADDRESS} "true"
 RET1=$?
 [[ ${RET1} -eq 0 ]] || RET=1
 print_passfail3 ${RET1}
 
-host_run_command ${APPIPADDRESS} "true"
+ssh ${APPIPADDRESS} "true"
 RET1=$?
 [[ ${RET1} -eq 0 ]] || RET=1
 print_passfail3 ${RET1}

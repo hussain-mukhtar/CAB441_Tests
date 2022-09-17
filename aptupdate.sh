@@ -2,7 +2,7 @@
 #UserKnownHostsFile=/dev/null
 #StrictHostKeyChecking=no
 
-print_header "Apt update for all VMs"
+print_header "Test apt update for all VMs"
 
 BASTIONIPADDRESS=10.0.0.10
 ROUTERIPADDRESS=172.16.0.254

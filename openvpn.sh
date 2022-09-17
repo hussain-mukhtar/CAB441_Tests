@@ -1,13 +1,17 @@
-print_header "OpenVPN server"
+# marker sudo test
+
+source library.sh
+
+print_header "Testing OpenVPN server Connection"
 
 BASTIONIPADDRESS=10.0.0.10
 PORTNUM=46753
-OVPNDIR=$( mktemp -d )
+#OVPNDIR=$( mktemp -d )
 RET=0
 
 
 print_header2 "Configuration under /home/marker/vpn.conf on bastion?"
-scp -P ${PORTNUM} ${BASTIONIPADDRESS}:/home/marker/vpn.conf ${OVPNDIR}/vpn.conf
+scp -P ${PORTNUM} ${BASTIONIPADDRESS}:/home/kali/vpn.conf ${OVPNDIR}/vpn.conf
 RET1=$?
 [[ ${RET1} -eq 0 ]] || RET=1
 print_passfail3 ${RET1}
@@ -17,7 +21,7 @@ print_header2 "VPN connects?"
 print_header3 "running openvpn ${OVPNDIR}/vpn.conf.  Waiting for connection... "
 
 OVPNPIDFILE=${OVPNDIR}/pid
-TUNDEV=tun${GROUPNUM}
+TUNDEV=tun0
 OVPNLOGFILE=${OVPNDIR}/openvpn.log
 cat ${OVPNDIR}/vpn.conf
 sudo -n /usr/sbin/openvpn \
