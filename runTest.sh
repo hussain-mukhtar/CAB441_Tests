@@ -8,7 +8,7 @@ sha1sum markerlogin.sh
 ./markerlogin.sh
 sha1sum markerloginsudo.sh
 ./markerloginsudo.sh
-sha1sum 
+sha1sum aptupdate.sh
 ./aptupdate.sh
 sha1sum openvpnmarkerssh.sh
 ./openvpnmarkerssh.sh

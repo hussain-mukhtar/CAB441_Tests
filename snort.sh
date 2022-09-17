@@ -9,9 +9,9 @@ PORTNUM=46753
 RET1=0
 
 print_header3 "Trying 3 times to ssh to ${IPADDRESS}, 5 second timeout.  This should fail."
-ssh "" ${IPADDRESS} "true"
-ssh "" ${IPADDRESS} "true"
-ssh "" ${IPADDRESS} "true"
+ssh "-o ConnectTimeout=5" ${IPADDRESS} "true"
+ssh "-o ConnectTimeout=5" ${IPADDRESS} "true"
+ssh "-o ConnectTimeout=5" ${IPADDRESS} "true"
 
 print_header3 "Grabbing /var/log/snort/alert.log last 10 lines"
 ALERTS=$( ssh "-J ${BASTIONIPADDRESS}:${PORTNUM}" ${ROUTERIPADDRESS} "sudo tail /var/log/snort/alert.log" )
